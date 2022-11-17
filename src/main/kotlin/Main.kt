@@ -1,7 +1,12 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import creator.Application
+import utils.DocumentType
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+fun main(args: Array<String>) {
+    val drawingApplication = Application.getApplicationType(DocumentType.Drawing)
+    val drawingDocument = drawingApplication.createDocument()
+    drawingDocument.showDocumentInfo()
+
+    val wordApplication = Application.getApplicationType(DocumentType.Word)
+    val wordDocument = wordApplication.createDocument()
+    wordDocument.showDocumentInfo()
 }
